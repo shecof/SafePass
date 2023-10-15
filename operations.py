@@ -22,7 +22,7 @@ class switch(object):
              return True
          return False
 
-#Operations with database:
+#Init operations:
 
 def create_new_configuration():
     f = open("lib/appconfig.ini", 'w')
@@ -42,7 +42,7 @@ def create_new_database(databasepath):
 def clear():
     for i in range(10):
         print("")
-def main_menu():
+def main_menu(Services):
     print ("\n---select option---")
     print ("1 - Create service")
     print ("2 - Manage service")
@@ -51,7 +51,26 @@ def main_menu():
     for case in switch(option):
         clear()
         if case(1): print("create"); break
-        if case(2): print("manage"); break
+        if case(2): services.show_services(Services); break
         if case(3): print("reveal"); break
-        if case(): main_menu()
+        if case(): main_menu(Services)
     
+#Operations with database:
+class services():
+    def reveal_service(Services):
+        option = int(input("Выберите id сервиса, пароль которого хотите посмотреть: "))
+        try:
+            if option >= 0:
+                for row in Services:
+                    if int(option) == int(row[0]):
+                        print (f"id - {row[0]}, service - {row[1]}, password - {row[2]}")
+        except:
+            main_menu()
+    def show_services(Services):
+        for row in Services:
+            print (f"id - {row[0]}, service - {row[1]}")
+        services.reveal_service(Services)
+    def show_service(Services, id):
+        for row in Services:
+            if id == row[0]:
+                print (f"id - {row[0]}, service - {row[1]}")

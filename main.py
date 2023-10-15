@@ -48,7 +48,7 @@ def main():
     init_application.init_database(internal_database.DatabasePath)
     print ("password database:")
     print (internal_database.Services)
-    operations.main_menu()
+    operations.main_menu(internal_database.Services)
 
 if __name__ == "__main__":
 	main()
