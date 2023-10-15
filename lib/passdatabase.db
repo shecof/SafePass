@@ -1,0 +1,9 @@
+#This is your password database file, dont share this file to anyone for you security
+[0]
+id = 0
+service_name = Test
+password = ABC
+[1]
+id = 02
+service_name = Test2
+password = ABC2
