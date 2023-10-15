@@ -40,12 +40,15 @@ class init_application:
             operations.create_new_database(databasepath)
             print("В корневой директории отсутствовал файл с базой паролей, был создан новый файл.")
 
+
+
 def main():
     print("\n\n\n\n\n\n---started---\n")
     init_application.init_configuration()
     init_application.init_database(internal_database.DatabasePath)
     print ("password database:")
     print (internal_database.Services)
+    operations.main_menu()
 
 if __name__ == "__main__":
 	main()
